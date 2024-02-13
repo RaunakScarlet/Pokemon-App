@@ -1,9 +1,7 @@
-
-import { StyleSheet, SafeAreaView ,Platform} from 'react-native';
-import PokemonCard from './components/PokemonCard';
+import { StyleSheet, SafeAreaView, Platform, ScrollView } from "react-native";
+import PokemonCard from "./components/PokemonCard";
 
 export default function App() {
-
     const charmanderData = {
         name: "Charmander",
         image: require("./assets/charmander.png"),
@@ -40,18 +38,22 @@ export default function App() {
         weaknesses: ["Ground"],
     };
 
-  return (
-      <SafeAreaView style={styles.container}>
-          <PokemonCard {...charmanderData} />
-      </SafeAreaView>
-  );
+    return (
+        <SafeAreaView style={styles.container}>
+            <ScrollView>
+                <PokemonCard {...charmanderData} />
+                <PokemonCard {...squirtleData} />
+                <PokemonCard {...bulbasaurData} />
+                <PokemonCard {...pikachuData} />
+            </ScrollView>
+        </SafeAreaView>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-        backgroundColor: '#f5f5f5',
-    paddingTop:Platform.OS==="android"?25:0
-   
-  },
+    container: {
+        flex: 1,
+        backgroundColor: "#F5F5F5",
+        paddingTop: Platform.OS === "android" ? 25 : 0,
+    },
 });
